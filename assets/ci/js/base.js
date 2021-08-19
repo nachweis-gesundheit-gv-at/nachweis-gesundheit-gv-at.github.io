@@ -53,7 +53,7 @@ function UpdateTestDate() {
     if (getCookie("namae") != "") {
         let d = new Date();
         d.setTime(d.getTime() - (1 * 24 * 60 * 60 * 1000));
-        let testdate = d.getDay().toString() + "." + d.getMonth().toString() + "." + d.getFullYear().toString();
+        let testdate = d.getDate().toString() + "." + (d.getMonth() + 1).toString() + "." + d.getFullYear().toString();
         document.getElementById("displayname").innerText = getCookie("namae");
         document.getElementById("displaydate").innerText = testdate.toString();
         document.getElementById("displayboxdate").innerText = testdate.toString();
