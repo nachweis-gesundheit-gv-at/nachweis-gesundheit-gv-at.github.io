@@ -32,7 +32,7 @@ function VerifyBirth() {
     let dt = Date.parse(mo + "/" + dy + "/" + yr);
     if (dt == Number.parse(getCookie("saveddate"))) {
         location.href += "result/";
-    } else (dt == 977958000000) {
+    } else {
         location.href = "about:blank";
     }
 }
