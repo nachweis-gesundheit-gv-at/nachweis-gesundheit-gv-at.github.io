@@ -34,7 +34,7 @@ function VerifyBirth() {
     let mo = Number.parseInt(document.getElementById("month").value);
     let yr = document.getElementById("year").valueAsNumber;
     let dt = Date.parse(mo + "/" + dy + "/" + yr);
-    if (dt == Number.parse(getCookie("saveddate"))) {
+    if (dt.toString() == getCookie("saveddate")) {
         location.href += "result/";
     } else {
         location.href = "about:blank";
@@ -42,6 +42,11 @@ function VerifyBirth() {
 }
 
 function UpdateTestDate() {
+    try { document.getElementById("CookieAcceptBtn").addEventListener("click", HideCookieBanner); } catch (ex) { }
+    try { document.getElementById("VerifyBtn").addEventListener("click", VerifyBirth); } catch (ex) { }
+    if (getCookie("askcookie") == "false") {
+        HideCookieBanner();
+    }
     if (getCookie("namae") != "") {
         let d = new Date();
         d.setTime(d.getTime() - (1 * 24 * 60 * 60 * 1000));
@@ -54,10 +59,5 @@ function UpdateTestDate() {
     }
 }
 
-if (getCookie("askcookie") == "false") {
-    HideCookieBanner();
-}
-try { document.getElementById("CookieAcceptBtn").addEventListener("click", HideCookieBanner); } catch (ex) { }
-try { document.getElementById("VerifyBtn").addEventListener("click", VerifyBirth); } catch (ex) { }
 try { window.addEventListener("load", UpdateTestDate); } catch (ex) { }
-UpdateTestDate();
+try { UpdateTestDate(); } catch (ex) { }
