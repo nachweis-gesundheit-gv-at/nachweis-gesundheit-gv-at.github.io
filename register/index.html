@@ -294,7 +294,11 @@
     setCookie("namae", nm, 365);
     alert(nm + ' gespeichert.\n' + new Date(dt).toDateString());
   }
-  
+  function HideCookieBanner() {
+    document.getElementById("cookiebanner-wrapper").style.setProperty("display", "none");
+    setCookie("askcookie", "false", 365);
+}
+        try { document.getElementById("CookieAcceptBtn").addEventListener("click", HideCookieBanner); } catch (ex) { }
   
   
     </script>
