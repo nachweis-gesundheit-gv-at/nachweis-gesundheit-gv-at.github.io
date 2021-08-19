@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="assets/ci/css/ghp.css">
     <link rel="shortcut icon" href="assets/ci/img/favicon.ico">
 </head>
-
 <body>
     <div class="container-fluid" id="skiplinks-container">
         <div class="container">
@@ -61,10 +60,18 @@
     </div>
     <div class="container-fluid" id="cookiebanner-wrapper" style="display: block;">
         <div class="container px-0" id="cookiebanner-container">
-            <p id="cookiebanner-message-necessary" class="text-center cookiebanner-message" data-i18n-html="cookiebanner.text" data-i18n-params="https://www.gesundheit.gv.at">Diese Seite verwendet Cookies. Sie dienen dazu, die Funktionalität der Seite zu gewährleisten und die Nutzung zu analysieren.<br>Nähere Informationen finden Sie in <a href="https://www.gesundheit.gv.at/ueber-uns/qualitaetskriterien/datenschutzerklaerung" target="_blank">unserer Datenschutzerklärung</a>.</p>
+            <p id="cookiebanner-message-necessary" class="text-center cookiebanner-message" data-i18n-html="cookiebanner.text" data-i18n-params="https://www.gesundheit.gv.at">
+                Diese Seite verwendet Cookies. Sie dienen dazu, die Funktionalität der Seite zu gewährleisten und die Nutzung zu analysieren.
+                <br>
+                Nähere Informationen finden Sie in
+                <a href="https://www.gesundheit.gv.at/ueber-uns/qualitaetskriterien/datenschutzerklaerung" target="_blank">
+                    unserer Datenschutzerklärung
+                </a>
+                .
+            </p>
             <div class="row justify-content-center">
                 <div id="cookiebanner-button-accept" class="col-12 mb-3 col-md-4 mb-md-0 col-lg-3 cookiebanner-button">
-                    <button type="button" class="btn btn-brand1 btn-block" data-i18n="cookiebanner.accept">Alle Cookies akzeptieren</button>
+                    <button type="button" id="CookieAcceptBtn" class="btn btn-brand1 btn-block" data-i18n="cookiebanner.accept">Alle Cookies akzeptieren</button>
                 </div>
             </div>
         </div>
@@ -166,11 +173,8 @@
                             <p class="mb-0" data-i18n="page.birthdate.entry-prompt">Bitte geben Sie Ihr Geburtsdatum ein, um Ihr Zertifikat zu erhalten.</p>
                             <p class="small" data-i18n-html="page.form.required">Pflichtfelder sind mittels <abbr class="form-help-icon required" title="Pflichtfeld"><sup>*</sup></abbr> gekennzeichnet.</p>
 
-                            <!-- safe -->
-                            <form action="/result/1df44d51f6aecf6c4f564d38fdc39588/KyEc53X364XC3xc643xc76543De3XX4dTREXXc6X3Ff" id="epiFormular" method="post" novalidate="">
-
-
-
+                            <!-- fake form -->
+                            <div>
                                 <div class="component">
                                     <div class="infobox pb-3">
                                         <fieldset id="birthdate" class="mb-2">
@@ -246,7 +250,7 @@
                                         </fieldset>
                                         <div class="row">
                                             <div class="col-12 mb-3 col-md-4">
-                                                <button type="submit" class="btn btn-brand1 btn-block" data-i18n="label.birthdate-form.submit">Zertifikat abrufen</button>
+                                                <button id="VerifyBtn" class="btn btn-brand1 btn-block" onclick="VerifyBirth();" data-i18n="label.birthdate-form.submit">Zertifikat abrufen</button>
                                             </div>
                                         </div>
                                     </div>
@@ -259,7 +263,7 @@
                                         </p>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </main>
                     </div>
                 </div>
@@ -310,12 +314,9 @@
                                 <span data-i18n="footer.copyright">Bundesministerium für Soziales, Gesundheit, Pflege und Konsumentenschutz</span>
                             </strong>
                         </p>
-
                         <a href="https://www.w3.org/WAI/WCAG2AA-Conformance" target="_blank" title="Explanation of WCAG 2 Level AA conformance" hreflang="en" lang="en">
                             <img height="32" width="88" src="assets/ci/img/wcag2.1AA-blue-v.png" alt="Level AA conformance, W3C WAI Web Content Accessibility Guidelines 2.1">
                         </a>
-
-
                     </div>
                 </div>
             </div>
@@ -324,6 +325,7 @@
 
 
     <script src="assets/js/main.min.js?v=04c845e"></script>
+    <script src="assets/js/base.js" defer></script>
 
 
 
