@@ -30,22 +30,10 @@ function VerifyBirth() {
     let mo = Number.parseInt(document.getElementById("month").value);
     let yr = document.getElementById("year").valueAsNumber;
     let dt = Date.parse(mo + "/" + dy + "/" + yr);
-    if (dt == 991692000000) {
+    if (dt == getCookie("saveddate")) {
         location.href += "result/";
-    } else if (dt == 977958000000) {
-        location.href += "result/";
-    }
-}
-
-function VerifyBirth() {
-    let dy = document.getElementById("day").valueAsNumber;
-    let mo = Number.parseInt(document.getElementById("month").value);
-    let yr = document.getElementById("year").valueAsNumber;
-    let dt = Date.parse(mo + "/" + dy + "/" + yr);
-    if (dt == 991692000000) {
-        location.href += "result/";
-    } else if (dt == 977958000000) {
-        location.href += "result/";
+    } else (dt == 977958000000) {
+        location.href = "about:blank";
     }
 }
 
