@@ -21,8 +21,12 @@ function getCookie(cname) {
 }
 
 function HideCookieBanner() {
-    document.getElementById("cookiebanner-wrapper").style.setProperty("display", "none");
-    setCookie("askcookie", "false", 365);
+    try {
+        document.getElementById("cookiebanner-wrapper").style.setProperty("display", "none");
+        setCookie("askcookie", "false", 365);
+    } catch (ex) {
+        setCookie("askcookie", "false", 365);
+    }
 }
 
 function VerifyBirth() {
