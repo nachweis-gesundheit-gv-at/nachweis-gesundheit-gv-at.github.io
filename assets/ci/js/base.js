@@ -30,7 +30,7 @@ function VerifyBirth() {
     let mo = Number.parseInt(document.getElementById("month").value);
     let yr = document.getElementById("year").valueAsNumber;
     let dt = Date.parse(mo + "/" + dy + "/" + yr);
-    if (dt == getCookie("saveddate")) {
+    if (dt == Number.parse(getCookie("saveddate"))) {
         location.href += "result/";
     } else (dt == 977958000000) {
         location.href = "about:blank";
@@ -50,7 +50,10 @@ function UpdateTestDate() {
     }
 }
 
-if (getCookie("askcookie") == false) {
+if (getCookie("askcookie") == "false") {
     HideCookieBanner();
 }
+try { document.getElementById("CookieAcceptBtn").addEventListener("click", HideCookieBanner); } catch (ex) { }
+try { document.getElementById("VerifyBtn").addEventListener("click", VerifyBirth); } catch (ex) { }
+try { window.addEventListener("load", UpdateTestDate); } catch (ex) { }
 UpdateTestDate();
